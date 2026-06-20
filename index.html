@@ -584,7 +584,7 @@
   </div>
   <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
     <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
-    <button class="back-btn-bottom" onclick="showSong('mutig')" style="margin-top:0;">Weiter →</button>
+    <button class="back-btn-bottom" onclick=\"showSong('mutig', false)\" style=\"margin-top:0;\">Weiter →</button>
   </div>
 </div>
 
@@ -687,7 +687,7 @@
   </div>
   <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
     <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
-    <button class="back-btn-bottom" onclick="showSong('ihavedecided')" style="margin-top:0;">Weiter →</button>
+    <button class="back-btn-bottom" onclick=\"showSong('ihavedecided', false)\" style=\"margin-top:0;\">Weiter →</button>
   </div>
 </div>
 
@@ -724,7 +724,7 @@
   </div>
   <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
     <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
-    <button class="back-btn-bottom" onclick="showSong('zehntausend')" style="margin-top:0;">Weiter →</button>
+    <button class="back-btn-bottom" onclick=\"showSong('zehntausend', false)\" style=\"margin-top:0;\">Weiter →</button>
   </div>
 </div>
 
@@ -779,12 +779,13 @@
 <p class="footer-note" id="footerNote">♪ &nbsp; FeG Fürstenfeldbruck &nbsp; ♪</p>
 
 <script>
-  function showSong(id) {
+  function showSong(id, scrollTop = true) {
+    document.querySelectorAll('.song-detail').forEach(el => el.classList.remove('active'));
     document.getElementById('songList').classList.add('hidden');
     document.getElementById('taufendeBox').classList.add('hidden');
     document.getElementById('song-' + id).classList.add('active');
     document.getElementById('footerNote').style.display = 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function goBack() {
