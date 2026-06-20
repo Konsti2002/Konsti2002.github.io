@@ -27,7 +27,6 @@
     padding: 0 0 80px;
   }
 
-  /* Header */
   .header {
     text-align: center;
     padding: 52px 24px 36px;
@@ -54,11 +53,10 @@
 
   .header-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 8vw, 52px);
+    font-size: clamp(28px, 7vw, 48px);
     font-weight: 700;
     line-height: 1.1;
     color: var(--brown);
-    letter-spacing: -0.5px;
   }
 
   .header-title em {
@@ -77,7 +75,7 @@
   .taufende {
     max-width: 480px;
     margin: 0 auto 36px;
-    padding: 24px 28px;
+    padding: 20px 24px;
     background: var(--warm-white);
     border: 1px solid var(--gold-light);
     border-radius: 2px;
@@ -90,12 +88,12 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--sepia);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   .taufende-names {
     font-family: 'Playfair Display', serif;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--brown);
     line-height: 2;
     font-style: italic;
@@ -105,33 +103,43 @@
     content: ' \00B7';
     color: var(--gold);
     font-style: normal;
-    margin: 0 6px;
+    margin: 0 4px;
   }
 
-  /* Song list */
   .song-list {
     max-width: 480px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+  }
+
+  .section-divider {
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sepia);
+    text-align: center;
+    padding: 8px 0 4px;
+    opacity: 0.7;
   }
 
   .song-card {
     background: var(--warm-white);
     border: 1px solid var(--gold-light);
     border-radius: 2px;
-    padding: 20px 22px;
+    padding: 18px 22px;
     cursor: pointer;
     transition: all 0.2s ease;
     position: relative;
-    box-shadow: 2px 3px 12px rgba(61,43,31,0.07);
+    box-shadow: 2px 3px 12px rgba(26,36,51,0.06);
   }
 
   .song-card:hover {
     background: var(--paper);
-    box-shadow: 3px 5px 18px rgba(61,43,31,0.13);
+    box-shadow: 3px 5px 18px rgba(26,36,51,0.11);
     transform: translateY(-1px);
   }
 
@@ -143,20 +151,47 @@
     transform: translateY(-50%);
     font-size: 18px;
     color: var(--gold);
-    opacity: 0.7;
+    opacity: 0.6;
   }
+
+  .reading-card {
+    background: var(--paper);
+    border: 1px solid var(--gold-light);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 18px 22px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 2px 3px 12px rgba(26,36,51,0.06);
+  }
+
+  .reading-card:hover {
+    box-shadow: 3px 5px 18px rgba(26,36,51,0.11);
+    transform: translateY(-1px);
+  }
+
+  .reading-card::before {
+    content: '📖';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+
+  .reading-card { position: relative; }
 
   .song-number {
     font-family: 'Special Elite', cursive;
     font-size: 10px;
     color: var(--sepia);
     letter-spacing: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .song-title {
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     color: var(--brown);
     line-height: 1.2;
@@ -170,7 +205,7 @@
     margin-top: 3px;
   }
 
-  /* Song detail view */
+  /* Detail view */
   .song-detail {
     display: none;
     max-width: 480px;
@@ -180,6 +215,7 @@
 
   .song-detail.active { display: block; }
   .song-list.hidden { display: none; }
+  .taufende.hidden { display: none; }
 
   .back-btn {
     display: inline-flex;
@@ -199,15 +235,31 @@
   }
 
   .back-btn:hover { color: var(--brown); }
+  .back-btn::before { content: '←'; font-size: 14px; }
 
-  .back-btn::before {
-    content: '←';
-    font-size: 14px;
+  .back-btn-bottom {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sepia);
+    cursor: pointer;
+    margin-top: 36px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    transition: color 0.2s;
   }
+
+  .back-btn-bottom:hover { color: var(--brown); }
+  .back-btn-bottom::before { content: '←'; font-size: 14px; }
 
   .detail-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 6vw, 36px);
+    font-size: clamp(22px, 6vw, 34px);
     font-weight: 700;
     color: var(--brown);
     line-height: 1.1;
@@ -217,9 +269,9 @@
   .detail-artist {
     font-family: 'Lora', serif;
     font-style: italic;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--sepia);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .detail-divider {
@@ -248,9 +300,7 @@
 
   .lyrics .section-label:first-child { margin-top: 0; }
 
-  .lyrics p {
-    margin-bottom: 4px;
-  }
+  .lyrics p { margin-bottom: 4px; }
 
   .lyrics .chorus {
     background: var(--paper);
@@ -258,6 +308,34 @@
     padding: 14px 18px;
     margin: 8px 0;
     border-radius: 0 2px 2px 0;
+  }
+
+  .reading-text {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--brown);
+  }
+
+  .reading-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brown-light);
+    margin: 24px 0 10px;
+  }
+
+  .reading-text h3:first-child { margin-top: 0; }
+
+  .reading-text p { margin-bottom: 12px; }
+
+  .reading-source {
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--sepia);
+    margin-top: 24px;
+    opacity: 0.7;
   }
 
   .footer-note {
@@ -280,7 +358,7 @@
   <p class="header-sub">Wähle ein Lied ♪</p>
 </div>
 
-<div class="taufende">
+<div class="taufende" id="taufendeBox">
   <div class="taufende-label">Heute getauft</div>
   <div class="taufende-names">
     <span>Sarah</span><span>Jason</span><span>Elias</span><span>Jonathan</span><span>Adelina</span><span>Felicitas</span><span>Konstantin</span><span>Jakob</span><span>Simone</span>
@@ -290,29 +368,233 @@
 <!-- Song List -->
 <div class="song-list" id="songList">
 
-  <div class="song-card" onclick="showSong('goodbye')">
-    <div class="song-number">01</div>
-    <div class="song-title">Goodbye Yesterday</div>
-    <div class="song-artist">Elevation Rhythm</div>
+  <div class="song-card" onclick="showSong('whoyousay')">
+    <div class="song-number">LIED 01</div>
+    <div class="song-title">Who You Say I Am</div>
+    <div class="song-artist">Hillsong Worship</div>
+  </div>
+
+  <div class="song-card" onclick="showSong('einfachspitze')">
+    <div class="song-number">LIED 02</div>
+    <div class="song-title">Einfach Spitze</div>
+    <div class="song-artist">Neue Lieder Nr. 133</div>
+  </div>
+
+  <div class="reading-card" onclick="showSong('schriftlesung')">
+    <div class="song-number">SCHRIFTLESUNG</div>
+    <div class="song-title">Matthäus 28</div>
+    <div class="song-artist">Einheitsübersetzung</div>
+  </div>
+
+  <div class="reading-card" onclick="showSong('glauben')">
+    <div class="song-number">GLAUBENSBEKENNTNIS</div>
+    <div class="song-title">Glaubensbekenntnis</div>
+    <div class="song-artist">In einfachen Worten</div>
   </div>
 
   <div class="song-card" onclick="showSong('mutig')">
-    <div class="song-number">02</div>
+    <div class="song-number">LIED 03</div>
     <div class="song-title">Mutig komm ich vor den Thron</div>
     <div class="song-artist">Urban Life Worship / Juri Friesen</div>
   </div>
 
+  <div class="reading-card" onclick="showSong('predigt')">
+    <div class="song-number">KURZPREDIGT</div>
+    <div class="song-title">Epheser 4, 22–23</div>
+    <div class="song-artist"></div>
+  </div>
+
+  <div class="song-card" onclick="showSong('hieristmeinherz')">
+    <div class="song-number">LIED 04</div>
+    <div class="song-title">Hier ist mein Herz</div>
+    <div class="song-artist">ICF Worship</div>
+  </div>
+
+  <div class="song-card" onclick="showSong('ihavedecided')">
+    <div class="song-number">LIED 05</div>
+    <div class="song-title">I Have Decided to Follow Jesus</div>
+    <div class="song-artist"></div>
+  </div>
+
+  <div class="song-card" onclick="showSong('zehntausend')">
+    <div class="song-number">LIED 06</div>
+    <div class="song-title">10.000 Gründe</div>
+    <div class="song-artist"></div>
+  </div>
+
 </div>
 
-<!-- Song Detail: Mutig komm ich vor den Thron -->
+<!-- DETAIL: Who You Say I Am -->
+<div class="song-detail" id="song-whoyousay">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">Who You Say I Am</h2>
+  <p class="detail-artist">Hillsong Worship</p>
+  <div class="detail-divider"></div>
+  <div class="lyrics">
+    <span class="section-label">Strophe 1</span>
+    <p>I was lost in the shadows, wandering alone</p>
+    <p>Carrying burdens too heavy to hold</p>
+    <p>Searching for meaning in places so dry</p>
+    <p>Till I heard Your whisper calling me to life</p>
+    <p>You saw beyond my failures, beyond all my shame</p>
+    <p>You spoke with mercy and called me by name</p>
+    <p>What the world could not heal, Your love made whole</p>
+    <p>And in Your presence, I found my soul</p>
+
+    <span class="section-label">Chorus</span>
+    <div class="chorus">
+      <p>You lifted my head when I could not stand</p>
+      <p>You wrote my story with Your own hand</p>
+      <p>I am who You say I am</p>
+      <p>Chosen, redeemed by the Great I Am</p>
+      <p>Not by my past, not by my pain</p>
+      <p>But by the blood that broke my chains</p>
+      <p>I am held in the palm of Your hand</p>
+      <p>Forever covered by Your perfect plan</p>
+      <p>No fear can change who I have become</p>
+      <p>I am who You say I am</p>
+    </div>
+
+    <span class="section-label">Strophe 2</span>
+    <p>When the lies come rising like waves in the night</p>
+    <p>Your truth is the anchor that keeps me alive</p>
+    <p>You call me beloved, You call me Your own</p>
+    <p>A child of heaven, never alone</p>
+    <p>The enemy whispers I'll never be free</p>
+    <p>But Your Word declares who You've made me to be</p>
+    <p>I stand on Your promise, I stand unashamed</p>
+    <p>For I bear the power of Jesus' name</p>
+
+    <span class="section-label">Bridge</span>
+    <p>I am forgiven, I am restored</p>
+    <p>I am accepted by the Lord</p>
+    <p>I am a vessel of Your grace</p>
+    <p>Forever changed in Your embrace</p>
+    <p>I am victorious, I am made new</p>
+    <p>All because I belong to You</p>
+    <p>Your truth will always be my song</p>
+    <p>In You is where I belong</p>
+
+    <span class="section-label">Outro</span>
+    <p>And when I stand before Your throne</p>
+    <p>I'll sing forever, I am Your own</p>
+    <p>My identity is found in You</p>
+    <p>Faithful, holy, forever true</p>
+    <p>I am who You say I am</p>
+    <p>Yes, I am who You say I am.</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('einfachspitze')" style="margin-top:0; flex-direction:row-reverse;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: Einfach Spitze -->
+<div class="song-detail" id="song-einfachspitze">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">Einfach Spitze</h2>
+  <p class="detail-artist">Neue Lieder Nr. 133</p>
+  <div class="detail-divider"></div>
+  <div class="lyrics">
+    <span class="section-label">Strophe 1</span>
+    <div class="chorus">
+      <p>Einfach spitze, dass du da bist,</p>
+      <p>einfach spitze, dass du da bist.</p>
+      <p>Einfach spitze, komm, wir loben Gott, den Herrn!</p>
+    </div>
+    <span class="section-label">Strophe 2</span>
+    <div class="chorus">
+      <p>Einfach spitze, lass uns stampfen …</p>
+    </div>
+    <span class="section-label">Strophe 3</span>
+    <div class="chorus">
+      <p>Einfach spitze, lass uns klatschen …</p>
+    </div>
+    <span class="section-label">Strophe 4</span>
+    <div class="chorus">
+      <p>Einfach spitze, lass uns hüpfen …</p>
+    </div>
+    <span class="section-label">Strophe 5</span>
+    <div class="chorus">
+      <p>Einfach spitze, lass uns tanzen …</p>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('schriftlesung')" style="margin-top:0; flex-direction:row-reverse;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: Schriftlesung -->
+<div class="song-detail" id="song-schriftlesung">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">Matthäus 28</h2>
+  <p class="detail-artist">Schriftlesung</p>
+  <div class="detail-divider"></div>
+  <div class="reading-text">
+    <h3>Die Frauen am leeren Grab (28,1–8)</h3>
+    <p>Nach dem Sabbat, beim Anbruch des ersten Tages der Woche, kamen Maria aus Magdala und die andere Maria, um nach dem Grab zu sehen. Und siehe, es geschah ein gewaltiges Erdbeben; denn ein Engel des Herrn kam vom Himmel herab, trat an das Grab, wälzte den Stein weg und setzte sich darauf. Sein Aussehen war wie ein Blitz und sein Gewand weiß wie Schnee. Aus Furcht vor ihm erbebten die Wächter und waren wie tot.</p>
+    <p>Der Engel aber sagte zu den Frauen: Fürchtet euch nicht! Ich weiß, ihr sucht Jesus, den Gekreuzigten. Er ist nicht hier; denn er ist auferstanden, wie er gesagt hat. Kommt her und seht euch den Ort an, wo er lag! Dann geht schnell zu seinen Jüngern und sagt ihnen: Er ist von den Toten auferstanden und siehe, er geht euch voraus nach Galiläa, dort werdet ihr ihn sehen. Siehe, ich habe es euch gesagt. Sogleich verließen sie das Grab voll Furcht und großer Freude und sie eilten zu seinen Jüngern, um ihnen die Botschaft zu verkünden.</p>
+
+    <h3>Die Erscheinung des Auferstandenen vor den Frauen (28,9–10)</h3>
+    <p>Und siehe, Jesus kam ihnen entgegen und sagte: Seid gegrüßt! Sie gingen auf ihn zu, warfen sich vor ihm nieder und umfassten seine Füße. Da sagte Jesus zu ihnen: Fürchtet euch nicht! Geht und sagt meinen Brüdern, sie sollen nach Galiläa gehen und dort werden sie mich sehen.</p>
+
+    <h3>Der Betrug der Hohepriester (28,11–15)</h3>
+    <p>Noch während die Frauen unterwegs waren, siehe, da kamen einige von den Wächtern in die Stadt und berichteten den Hohepriestern alles, was geschehen war. Diese fassten gemeinsam mit den Ältesten den Beschluss, die Soldaten zu bestechen. Sie gaben ihnen viel Geld und sagten: Erzählt den Leuten: Seine Jünger sind bei Nacht gekommen und haben ihn gestohlen, während wir schliefen. Falls der Statthalter davon hört, werden wir ihn beschwichtigen und dafür sorgen, dass ihr nichts zu befürchten habt. Die Soldaten nahmen das Geld und machten alles so, wie man es ihnen gesagt hatte. Und dieses Gerücht verbreitete sich bei Juden bis heute.</p>
+
+    <h3>Der Auftrag des Auferstandenen (28,16–20)</h3>
+    <p>Die elf Jünger gingen nach Galiläa auf den Berg, den Jesus ihnen genannt hatte. Und als sie Jesus sahen, fielen sie vor ihm nieder, einige aber hatten Zweifel. Da trat Jesus auf sie zu und sagte zu ihnen: Mir ist alle Vollmacht gegeben im Himmel und auf der Erde. Darum geht und macht alle Völker zu meinen Jüngern; tauft sie auf den Namen des Vaters und des Sohnes und des Heiligen Geistes und lehrt sie, alles zu befolgen, was ich euch geboten habe. Und siehe, ich bin mit euch alle Tage bis zum Ende der Welt.</p>
+
+    <p class="reading-source">Einheitsübersetzung</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('glauben')" style="margin-top:0; flex-direction:row-reverse;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: Glaubensbekenntnis -->
+<div class="song-detail" id="song-glauben">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">Glaubensbekenntnis</h2>
+  <p class="detail-artist">In einfachen Worten</p>
+  <div class="detail-divider"></div>
+  <div class="reading-text">
+    <p>Ich glaube an Gott, den Vater,<br>
+    der den Himmel und die Erde gemacht hat<br>
+    und auch mich.<br>
+    Alles hält er in seiner Hand.</p>
+    <p>Ich glaube an Jesus Christus.<br>
+    Er ist Gottes Sohn.<br>
+    Er ist ein Mensch geworden wie wir.<br>
+    Er ist gestorben für uns,<br>
+    Er hat mit seinem Leben für unsere Schuld und Sünden bezahlt.<br>
+    Er hat den Tod besiegt und ist auferstanden.<br>
+    Er lebt bei Gott – und ist uns nahe.</p>
+    <p>Ich glaube, dass Gottes Geist bei mir ist und mich beschützt.<br>
+    In der Kirche trifft sich die Familie Gottes.<br>
+    Durch die Taufe gehöre auch ich dazu.</p>
+    <p>Ich muss nicht in Angst leben,<br>
+    Gott ist immer für mich da.<br>
+    Wenn ich etwas gegen seinen Willen tue,<br>
+    darf ich umkehren und ihn um Vergebung bitten.</p>
+    <p>Wenn ich sterbe,<br>
+    werde ich bei Gott sein und für immer bei ihm leben.</p>
+    <p><strong>Amen.</strong></p>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('mutig')" style="margin-top:0;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: Mutig -->
 <div class="song-detail" id="song-mutig">
   <button class="back-btn" onclick="goBack()">Zurück</button>
   <h2 class="detail-title">Mutig komm ich vor den Thron</h2>
   <p class="detail-artist">Urban Life Worship / Juri Friesen</p>
   <div class="detail-divider"></div>
-
   <div class="lyrics">
-
     <span class="section-label">Strophe 1</span>
     <p>Allein durch Gnade steh ich hier vor deinem Thron, mein Gott, bei dir.</p>
     <p>Der mich erlöst hat, lädt mich ein, ganz nah an seinem Herz zu sein.</p>
@@ -344,88 +626,154 @@
     <p>Wir sind befreit, er trug das Urteil.</p>
     <p>O, preist den Herrn, preist den Herrn!</p>
     <p>Er hat für meine Schuld bezahlt.</p>
-
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('predigt')" style="margin-top:0; flex-direction:row-reverse;">Weiter →</button>
   </div>
 </div>
 
-<!-- Song Detail: Goodbye Yesterday -->
-<div class="song-detail" id="song-goodbye">
+<!-- DETAIL: Kurzpredigt -->
+<div class="song-detail" id="song-predigt">
   <button class="back-btn" onclick="goBack()">Zurück</button>
-  <h2 class="detail-title">Goodbye Yesterday</h2>
-  <p class="detail-artist">Elevation Rhythm</p>
+  <h2 class="detail-title">Kurzpredigt</h2>
+  <p class="detail-artist">Epheser 4, 22–23</p>
   <div class="detail-divider"></div>
+  <div class="reading-text">
+    <p>22 Ihr sollt euer altes Leben wie alte Kleider ablegen. Folgt nicht mehr euren Leidenschaften, die euch in die Irre führen und euch zerstören.</p>
+    <p>23 Lasst euch in eurem Denken verändern und euch innerlich ganz neu ausrichten.</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('hieristmeinherz')" style="margin-top:0; flex-direction:row-reverse;">Weiter →</button>
+  </div>
+</div>
 
+<!-- DETAIL: Hier ist mein Herz -->
+<div class="song-detail" id="song-hieristmeinherz">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">Hier ist mein Herz</h2>
+  <p class="detail-artist">ICF Worship</p>
+  <div class="detail-divider"></div>
   <div class="lyrics">
-
-    <span class="section-label">Chorus</span>
-    <div class="chorus">
-      <p>Goodbye, yesterday</p>
-      <p>I'm livin' in the light of a new day</p>
-      <p>I won't waste another minute in my old ways</p>
-      <p>Praise the Lord, I've been born again</p>
-    </div>
-
-    <span class="section-label">Verse</span>
-    <p>Oh, I've been born again</p>
-    <p>Again and again and again and again</p>
-    <p>You rescued me out of the mess I was in</p>
-    <p>You traded my sorrow for something to sing</p>
-    <p>Now, I'm dancin' on the grave that I once lived in</p>
-
-    <span class="section-label">Chorus</span>
-    <div class="chorus">
-      <p>Goodbye, yesterday</p>
-      <p>I'm livin' in the light of a new day</p>
-      <p>I won't waste another minute in my old ways</p>
-      <p>Praise the Lord, I've been born again</p>
-      <p>Goodbye, yesterday</p>
-      <p>The Spirit of the Lord is upon me</p>
-      <p>I've got resurrection in my veins</p>
-      <p>Praise the Lord, I've been born</p>
-    </div>
+    <span class="section-label">Strophe</span>
+    <p>Hier ist mein Herz, ich geb es dir</p>
+    <p>Mit offenen Händen steh ich hier</p>
+    <p>Ich lasse los, du hilfst in meiner Not</p>
+    <p>Und schau auf dich allein mein Gott</p>
 
     <span class="section-label">Bridge</span>
-    <p>Again and again and again and again</p>
-    <p>You rescued me out of the mess I was in</p>
-    <p>You traded my sorrow for something to sing</p>
-    <p>Now, I'm dancin' on the grave that I once lived in</p>
+    <p>In dir steh ich auf festem Grund</p>
+    <p>Mein Anker und mein Zufluchtsort</p>
+    <p>Und ganz egal was auch geschieht</p>
+    <p>Mit dir will ich nach vorne gehen</p>
+    <p>Deine Liebe bleibt nicht stehen</p>
 
-    <span class="section-label">Tag</span>
-    <p>I have decided to follow Jesus</p>
-    <p>The world behind, the Cross before</p>
-    <p>And I won't turn back</p>
-    <br>
-    <p>I have decided to follow Jesus</p>
-    <p>The world behind, the Cross before</p>
-    <p>And I won't turn back</p>
-    <br>
-    <p>I have decided (I have decided)</p>
-    <p>To follow Jesus (to follow Jesus)</p>
-    <p>I'm gonna leave the world behind</p>
-    <p>The world behind, the Cross before me</p>
-    <p>And I won't turn back</p>
-    <br>
-    <p>I won't turn back (I won't turn back)</p>
-    <p>And I won't turn back (and I won't turn back)</p>
-    <p>No-no, no-no, no</p>
-    <p>The world behind and the Cross before</p>
-    <p>And I won't turn back</p>
+    <span class="section-label">Chorus</span>
+    <div class="chorus">
+      <p>Hier ist mein Herz, ich geb es dir</p>
+      <p>Mit offenen Händen steh ich hier</p>
+      <p>Ich lasse los, du hilfst in meiner Not</p>
+      <p>Und schau auf dich allein mein Gott, ooh</p>
+    </div>
 
     <span class="section-label">Outro</span>
-    <p>Again and again and again and again</p>
-    <p>You rescued me out of the mess I was in</p>
-    <p>You traded my sorrow for something to sing</p>
-    <p>Now, I'm dancin' on the grave that I once lived in</p>
-    <br>
-    <p>Whoa, oh, whoa-oh-oh, yeah</p>
-    <p>Praise the Lord, I've been born again</p>
-    <br>
-    <p>Now, I'm dancin' on the grave that I once lived in</p>
-    <p>Dancin' on the grave that I once lived in</p>
-    <p>Oh, praise the Lord, I've been born again</p>
-
+    <p>Ich geb mich ganz hin, du bist heilig</p>
+    <p>Du bist heilig</p>
+    <p>Du bist heilig, mein Gott</p>
+    <p>Du bist heilig</p>
+    <p>Du bist heilig</p>
+    <p>Du bist heilig, mein Gott</p>
   </div>
-  <button class="back-btn" onclick="goBack()" style="margin-top:32px;">Zurück</button>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('ihavedecided')" style="margin-top:0;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: I Have Decided -->
+<div class="song-detail" id="song-ihavedecided">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">I Have Decided to Follow Jesus</h2>
+  <p class="detail-artist"></p>
+  <div class="detail-divider"></div>
+  <div class="lyrics">
+    <span class="section-label">Strophe 1</span>
+    <div class="chorus">
+      <p>I have decided to follow Jesus;</p>
+      <p>I have decided to follow Jesus;</p>
+      <p>I have decided to follow Jesus;</p>
+      <p>No turning back; no turning back.</p>
+    </div>
+
+    <span class="section-label">Strophe 2</span>
+    <div class="chorus">
+      <p>If no one joins me, still I will follow;</p>
+      <p>If no one joins me, still I will follow;</p>
+      <p>If no one joins me, still I will follow;</p>
+      <p>No turning back; no turning back.</p>
+    </div>
+
+    <span class="section-label">Strophe 3</span>
+    <div class="chorus">
+      <p>The cross before me, the world behind me;</p>
+      <p>The cross before me, the world behind me;</p>
+      <p>The cross before me, the world behind me;</p>
+      <p>No turning back, no turning back.</p>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px;">
+    <button class="back-btn-bottom" onclick="goBack()" style="margin-top:0;">Zurück</button>
+    <button class="back-btn-bottom" onclick="showSong('zehntausend')" style="margin-top:0;">Weiter →</button>
+  </div>
+</div>
+
+<!-- DETAIL: 10000 Gründe -->
+<div class="song-detail" id="song-zehntausend">
+  <button class="back-btn" onclick="goBack()">Zurück</button>
+  <h2 class="detail-title">10.000 Gründe</h2>
+  <p class="detail-artist">Zehntausend Gründe</p>
+  <div class="detail-divider"></div>
+  <div class="lyrics">
+    <span class="section-label">Refrain</span>
+    <div class="chorus">
+      <p>Komm und lobe den Herrn</p>
+      <p>Meine Seele sing</p>
+      <p>Bete den König an</p>
+      <p>Sing wie niemals zuvor</p>
+      <p>Nur für Ihn!</p>
+      <p>Und bete den König an!</p>
+    </div>
+
+    <span class="section-label">Strophe 1</span>
+    <p>Ein neuer Tag und ein neuer Morgen</p>
+    <p>Und wieder bring ich dir mein Lob!</p>
+    <p>Was heut vor mir liegt</p>
+    <p>Und was immer auch geschehen mag</p>
+    <p>Lass mich noch singen wenn der Abend kommt</p>
+
+    <span class="section-label">Strophe 2</span>
+    <p>Du liebst so sehr und vergiebst geduldig</p>
+    <p>Schenkst Gnade, Trost und Barmherzigkeit!</p>
+    <p>Von deiner Güte will ich immer singen</p>
+    <p>Zehntausend Gründe gibst du mir dafür!</p>
+
+    <span class="section-label">Strophe 3</span>
+    <p>Und wenn am Ende die Kräfte schwinden</p>
+    <p>Wenn meine Zeit dann gekommen ist</p>
+    <p>Wird meine Seele dich weiter preisen</p>
+    <p>Zehntausend Jahre und in Ewigkeit</p>
+
+    <span class="section-label">Outro</span>
+    <p>Und bete den König an!</p>
+    <p>Bete den König an!</p>
+    <p>Sing wie niemals zuvor</p>
+    <p>Nur für Ihn</p>
+    <p>Und bete den König an!</p>
+    <p>Bete den König an!</p>
+    <p>Bete den König an!</p>
+  </div>
+  <button class="back-btn-bottom" onclick="goBack()">Zurück</button>
 </div>
 
 <p class="footer-note" id="footerNote">♪ &nbsp; FeG Fürstenfeldbruck &nbsp; ♪</p>
@@ -433,6 +781,7 @@
 <script>
   function showSong(id) {
     document.getElementById('songList').classList.add('hidden');
+    document.getElementById('taufendeBox').classList.add('hidden');
     document.getElementById('song-' + id).classList.add('active');
     document.getElementById('footerNote').style.display = 'none';
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -441,6 +790,7 @@
   function goBack() {
     document.querySelectorAll('.song-detail').forEach(el => el.classList.remove('active'));
     document.getElementById('songList').classList.remove('hidden');
+    document.getElementById('taufendeBox').classList.remove('hidden');
     document.getElementById('footerNote').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
